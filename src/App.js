@@ -1,23 +1,39 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Header from "./Header.js"
+import Status from "./Status.js"
+import Temp from "./Temp"
+import Info from "./Info"
+import Graph from "./Graph"
 function App() {
+
+  const [status, setStatus] = [{
+    arduino: true, 
+    server: true, 
+    db: false}]
+
+  const [temp, setTemp] = [{
+    current: 23,
+    avg: 21.9,
+    target: 22,
+    onoff: false, 
+  }]
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <div className="main-content">
+        <Info />
+        <Status arduino={status.arduino} server={status.server} db={status.db}/>
+        <Temp 
+          current={temp.current}
+          avg={temp.avg}
+          target={temp.target}
+          onoff={temp.onoff}
+        />
+        
+      </div>
+      <Graph />
     </div>
   );
 }
