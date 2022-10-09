@@ -8,9 +8,9 @@ import Graph from "./Graph"
 function App() {
 
   const [status, setStatus] = [{
-    arduino: true, 
+    arduino: false, 
     server: true, 
-    db: false}]
+    db: true}]
 
   const [temp, setTemp] = [{
     current: 23,
@@ -31,7 +31,7 @@ function App() {
           target={temp.target}
           onoff={temp.onoff}
         />
-        
+
       </div>
       <Graph />
     </div>
