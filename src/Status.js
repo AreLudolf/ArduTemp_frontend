@@ -1,7 +1,6 @@
 import React from "react"
 
 export default function Status(props){
-	console.log(props)
 	return (
 		<div className="dash-itembox_status">
 			<h1>Connection</h1>

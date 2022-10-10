@@ -1,7 +1,6 @@
 import React from "react"
 
 export default function Temp(props){
-	console.log(props)
 	return (
 		<div className="dash-itembox_status">
 			<h1>Temperature</h1>
