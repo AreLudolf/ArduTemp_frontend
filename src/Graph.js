@@ -5,9 +5,9 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from "recharts"
 
 export default function Graph(){
 	const [apiData, setApiData] = React.useState([])
-		const testapiData = [{date: '01.08.22, 16:34', temp: 24}, 
+		/*const testapiData = [{date: '01.08.22, 16:34', temp: 24}, 
 			{date: '01.08.22, 16:37', temp: 18},
-			{date: '01.08.22, 16:40', temp: 20}];
+			{date: '01.08.22, 16:40', temp: 20}];*/
 
 
 	React.useEffect (() => {
@@ -17,7 +17,7 @@ export default function Graph(){
 		for (let i of data){
 			setApiData(prevApiData => ([
 				...prevApiData,
-				{date: i.date,
+				{id: i.id,
             			temp: i.temp,
             			relay: i.relay}])
 
@@ -31,7 +31,7 @@ export default function Graph(){
 		*/
        		
 	console.log(apiData.temp)
-	console.log(apiData.date)
+	console.log(apiData.id)
 	console.log(apiData)
 
 	return (
@@ -39,7 +39,7 @@ export default function Graph(){
   		<LineChart className="linechart" width={800} height={500} data={apiData} margin={{ top: 50, right: 20, bottom: 5, left: -10 }}>
     		<Line type="monotone" dataKey="temp" stroke="#FFFFFF" />
     		<CartesianGrid stroke="#7F849C" strokeDasharray="5 5" />
-    		<XAxis dataKey="date" stroke="#CDD6F4" />
+    		<XAxis dataKey="id" stroke="#CDD6F4" />
     		<YAxis dataKey="temp" stroke="#CDD6F4"/>
     		<Tooltip/>
   		</LineChart>
